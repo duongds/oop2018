@@ -1,5 +1,4 @@
 ﻿package week1;
-
 public class Student {
     
     private String name;
@@ -7,7 +6,6 @@ public class Student {
 
     private String group;
     private String email;
-    // TODO: khai báo các thuộc tính cho Student
 
     public String getName(){
 		return name;
@@ -35,9 +33,7 @@ public class Student {
     public void setEmail(String email)
 	{
 	
-         	if(email == null || email.isEmpty()){
-			                     this.email = "Group không hợp lệ!";	}
-		                else this.email = email;
+         	this.email = email;
 	}
     // TODO: khai báo các phương thức getter, setter cho Student
 
