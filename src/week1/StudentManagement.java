@@ -11,8 +11,7 @@ public class StudentManagement {
         String str2 = s2.getGroup();
        
         if(str1.equals(str2)) return true;
-        // TODO:
-        return false; // xóa dòng này sau khi cài đặt
+        else return false; // xóa dòng này sau khi cài đặt
     }
 
     void studentsByGroup() {

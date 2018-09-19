@@ -88,7 +88,7 @@ public class Student {
     }
 
     String getInfo() {
-        String s = name + " " + id + " " + group +" " +email;
+        String s = this.name + " " + this.id + " " + this.group +" " +this.email;
                return s;
         // TODO:
         
