@@ -49,7 +49,7 @@ public class Week3 {
             out ="Thiếu cân";
         }
         if ( 18.5<=BMI&& BMI<=22.99){
-            out ="bình thường";
+            out ="Bình thường";
         }
         if ( BMI>=23&&BMI<=24.99){
             out ="Thừa cân";
