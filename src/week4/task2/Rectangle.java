@@ -67,12 +67,8 @@ public class Rectangle extends Shape {
         return (this.length + this.width)*2;
     }
 
-    /**
-     * ghi đè lại phương thức toString ở lớp cơ sở
-     * @return  mặc định ở đây là Rectangle
-     */
     @Override
     public String toString() {
-        return "Rectangle";
+        return  getColor()+ " " + isFilled()+" " +this.length +" "+ this.width;
     }
 }

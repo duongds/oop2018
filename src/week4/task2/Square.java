@@ -40,12 +40,10 @@ public class Square extends Rectangle {
     public Square(double side,String color,boolean filled){
         super(side,side,color,filled);
     }
-    /**
-     * ghi đè lại phương thức toString ở lớp cơ sở
-     * @return  mặc định ở đây là Square.
-     */
+
     @Override
-    public String toString() {
-        return "Square";
+    public String toString()
+    {
+        return getColor()+ " " + isFilled()+" " +getLength() +" "+ getWidth();
     }
 }

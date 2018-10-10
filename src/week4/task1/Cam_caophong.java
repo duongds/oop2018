@@ -5,6 +5,11 @@ public class Cam_caophong extends Cam{
     private  String NoiBan;
     //TOdo: Khai Báo phương thức
 
+    @Override
+    public int getamout() {
+        return super.getamout();
+    }
+
     public int getSoLuongNhap() {
         return this.SoLuongNhap;
     }
@@ -23,5 +28,15 @@ public class Cam_caophong extends Cam{
     public void Yeucaunhap()
     {
         if(getamout()<100) System.out.println("So luong can nhap" + getSoLuongNhap());
+    }
+
+    @Override
+    public void PrintNgayNhap() {
+        super.PrintNgayNhap();
+    }
+
+    @Override
+    public String toString() {
+        return getamout() +" " + getOrigin() + " " + getNgayNhap()+" "+ getNoiBan();
     }
 }

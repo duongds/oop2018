@@ -16,7 +16,6 @@ public class Shape {
         return filled;
     }
 
-
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
@@ -39,12 +38,9 @@ public class Shape {
         this.filled = filled;
     }
 
-    /**
-     * phương thức chuyển sang xâu ký tự
-     * @return kiểu hình học mặc định ở đây là Shape.
-     */
-    public String toString(){
-        return "Shape";
+    @Override
+    public String toString() {
+        return this.color +" "+ this.filled;
     }
 
     public static void main(String Args[]){

@@ -55,12 +55,9 @@ public class Circle extends Shape {
         return PI*radius*2;
     }
 
-    /**
-     * ghi đè lại phương thức toString ở lớp cơ sở
-     * @return  mặc định ở đây là Circle
-     */
     @Override
-    public String toString() {
-        return "Circle";
+    public String toString()
+    {
+        return  getColor() +" " +isFilled()+" "+ this.radius;
     }
 }
