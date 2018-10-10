@@ -1,7 +1,7 @@
 package week3;
 
 /**
- *
+ * Class làm bài tập week3
  */
 public class Week3 {
 
@@ -18,6 +18,12 @@ public class Week3 {
 
     }
 
+    /**
+     * phương thức để in ra ds
+     */
+    public void asd(){
+        System.out.println("dd");
+    }
     /**
      * Phương thức tìm giá trị nhỏ nhất của một mảng số nguyên
      * @param array là mảng số nguyên
