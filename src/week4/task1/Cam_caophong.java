@@ -22,6 +22,6 @@ public class Cam_caophong extends Cam{
     }
     public void Yeucaunhap()
     {
-        if(getAmount()<100) System.out.println("So luong can nhap" + getSoLuongNhap());
+        if(getamout()<100) System.out.println("So luong can nhap" + getSoLuongNhap());
     }
 }
