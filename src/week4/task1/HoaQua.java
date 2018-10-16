@@ -1,6 +1,7 @@
 package week4.task1;
 
 /**
+<<<<<<< Updated upstream
  * Created by CCNE on 10/10/2018.
  */
 public class HoaQua {
@@ -45,16 +46,14 @@ public class HoaQua {
     {
         System.out.println("Amout is "+ getamout());
     }
-
     @Override
     public String toString() {
         return getamout() +" " +getOrigin();
     }
-    public  static void main(String afd[])
-    {
+    public  static void main(String afd[]) {
         Cam newcam = new Cam();
         Apple newApple = new Apple();
-        Cam_caophong cam1= new Cam_caophong();
+        Cam_caophong cam1 = new Cam_caophong();
         CamSanh CAM2 = new CamSanh();
         newcam.setNgayNhap("21/4/2013");
         newcam.setAmout(234);
