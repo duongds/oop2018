@@ -1,4 +1,4 @@
-package week4.task2;
+package week5_6;
 
 public class Circle extends  Shape {
     static final double PI = 3.14;
@@ -78,4 +78,3 @@ public class Circle extends  Shape {
         return "Circle";
     }
 }
-
