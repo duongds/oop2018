@@ -1,9 +1,16 @@
 package week5_6;
 
-public class Shape {
-    private String color;
-    private boolean filled;
-    // TOdo: Khai báo phương thức getter, setter
+//import java.util.ArrayList;
+
+/**
+ * Created by CCNE on 17/10/2018.
+ */
+abstract class Shape {
+    protected String color;
+    protected boolean filled;
+    protected boolean isMoving;
+    abstract double getArea();
+    abstract double getPerimeter();
     public String getColor() {
         return color;
     }
@@ -19,27 +26,12 @@ public class Shape {
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
-    /**
-     * Hàm tạo không có tham số
-     * 2 thuộc tính được mặc định giá trị là "Red" và true.
-     */
-    public Shape(){
-        color = "Red";
-        filled = true;
+
+    public boolean isMoving() {
+        return isMoving;
     }
 
-    /**
-     * Hàm tạo có tham số truyền vào
-     * @param color màu sắc muốn khởi tạo
-     * @param filled có tô màu hay không
-     */
-    public Shape(String color, boolean filled){
-        this.color = color;
-        this.filled = filled;
-    }
-
-    @Override
-    public String toString() {
-        return this.color +" "+ this.filled;
+    public void setMoving(boolean moving) {
+        isMoving = moving;
     }
 }
