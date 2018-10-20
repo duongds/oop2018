@@ -1,16 +1,20 @@
 package week5_6;
+import javax.swing.*;
 import java.util.ArrayList;
+import java.util.List;
 
-public class Diagram {
+public class Diagram extends JFrame {
+
+    private static JFrame mainFrame = new JFrame("Test");
+
     private ArrayList<Layer> listLayer = new ArrayList<>();
+    public static JFrame getMainFrame() {
+        return mainFrame;
+    }
 
-    /**
-     * phương thức xóa tất cả các đối tượng trong diagram
-     */
+
     public void deleteCricle(){
-        for(int i=0;i<listLayer.size();i++){
-            listLayer.get(i).deleteCricle();
-        }
+
     }
 
     /**
@@ -21,16 +25,14 @@ public class Diagram {
         listLayer.add(other);
     }
 
-    /**
-     * phương thức kiểm tra xem trong diagram có còn đối tượng lớp circle hay không
-     * @return
-     */
-    public boolean isEmtpryCircle1(){
-        for(int i=0;i<listLayer.size();i++){
-            if(listLayer.get(i).isEmptyCircle()==false){
-                return false;
-            }
-        }
-        return true;
+    public static void main(String[] args){
+        List<Layer> list = new ArrayList<>();
+        list.add(new Layer());
+        mainFrame.setBounds(100,10,700,700);
+        mainFrame.setVisible(true);
+        mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        list.get(0).Show();
+
     }
+
 }

@@ -1,35 +1,63 @@
 package week5_6;
 
+import java.util.Random;
+
+/**
+ * class hình vuông
+ */
 public class Square extends Rectangle {
+    private int side;
+    private Point start = new Point();
+    private Point SpeedXY = new Point();
+
     /**
-     * phương thức tạo có 1 tham số
-     * @param side chiều dài 1 cạnh hình vuông
-     */
-    public Square(double side){
-        super(side,side);
-    }
-    /**
-     * phương thức tạo mặc định
+     * hàm khởi tạo
      */
     public Square(){
-        super();
+        Random rd = new Random();
+        side = rd.nextInt(150);
+        start.setX(rd.nextInt(150));
+        start.setY(rd.nextInt(150));
+        SpeedXY.setY(rd.nextInt(15));
+        SpeedXY.setX(rd.nextInt(15));
+    }
+
+    @Override
+    public void setStart(Point start) {
+        this.start = start;
+    }
+    public Point getStart(){
+        return this.start;
+    }
+    /**
+     * tra về side
+     * @return side đô dài cạnh
+     */
+    public int getSide() {
+        return this.side;
     }
 
     /**
-     * phương thức tính chu vi hình vuông
-     * @return chu vi hình vuông
+     * cai đật cạnh
+     * @param side
      */
-    @Override
-    public double getArea(){
-        return super.getArea();
+    public void setSide(int side) {
+        this.side = side;
     }
-
-    /**
-     * phương thức tính chu vi hình vuông
-     * @return  chu vi hình vuông
-     */
-    @Override
-    public double getPerimeter(){
-        return super.getPerimeter();
+    public void Update(){
+        if(start.getX() > Diagram.getMainFrame().getWidth() - side - 15){
+            SpeedXY.setX(-SpeedXY.getX());
+        }
+        if(start.getX() <= 0){
+            SpeedXY.setX(-SpeedXY.getX());
+        }
+        if(start.getY() <= 0 ){
+            SpeedXY.setY(-SpeedXY.getY());
+        }
+        if(start.getY() > Diagram.getMainFrame().getHeight() - side - 35){
+            SpeedXY.setY(-SpeedXY.getY());
+        }
+        start.setX(start.getX()+SpeedXY.getX());
+        start.setY(start.getY()+SpeedXY.getY());
     }
 }

@@ -16,7 +16,7 @@ public class Circle extends  Shape {
      *
      * @param radius bán kính ta muốn tạo
      */
-    public Circle(double radius) {
+    public Circle(int radius) {
         this.radius = radius;
     }
 
@@ -27,7 +27,7 @@ public class Circle extends  Shape {
      * @param color  màu ta muốn tạo
      * @param filled thuộc tính filled ta muốn tạo
      */
-    public Circle(double radius, String color, boolean filled) {
+    public Circle(int radius, String color, boolean filled) {
         super(color, filled);
         this.radius = radius;
     }
@@ -46,7 +46,7 @@ public class Circle extends  Shape {
      *
      * @param radius bán kính ta muốn thay đổi
      */
-    public void setRadius(double radius) {
+    public void setRadius(int radius) {
         this.radius = radius;
     }
 

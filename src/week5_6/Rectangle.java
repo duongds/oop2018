@@ -1,72 +1,87 @@
 package week5_6;
 
-public class Rectangle extends Shape{
-    private double width;
-    private double height;
+import java.util.Random;
 
+/**
+ * class hình chữ nhật
+ */
+public class Rectangle extends Shape {
+    private int width,length;
+    private Point start = new Point();
+    private Point SpeedXY = new Point();
     /**
-     * phương thức tạo mặc định
+     * hàm khởi tạo
      */
     public Rectangle(){
-        width = 1.0;
-        height = 1.0;
+        Random rd = new Random();
+        width = rd.nextInt(150);
+        length = rd.nextInt(150);
+        start.setX(rd.nextInt(150));
+        start.setY(rd.nextInt(150));
+        SpeedXY.setY(rd.nextInt(15));
+        SpeedXY.setX(rd.nextInt(15));
+    }
+
+    public void setStart(Point start) {
+        this.start = start;
+    }
+
+    public Point getStart() {
+        return start;
     }
 
     /**
-     * phương thức tạo có 2 tham số
-     * @param width chiều rộng
-     * @param height chiều dài
+     * đặt giá trị chiều rộng
+     * @param width
      */
-    public Rectangle(double width,double height){
+    public void setWidth(int width) {
         this.width = width;
-        this.height = height;
-    }
-    @Override
-    /**
-     * phương thức tính diện tích hình chữ nhật
-     * @return  diện tích hình chữ nhật
-     */
-    public double getArea(){
-        return width*height;
-    }
-    @Override
-    /**
-     * phương thức tính chu vi hình chữ nhật
-     * @return  chu vi hình chữ nhật
-     */
-    public double getPerimeter(){
-        return (width+height)*2;
     }
 
     /**
-     * phương thức lấy chiều rộng
-     * @return  chiều dài
+     * đật giá trị chiều dai
+     * @param length
      */
-    public double getWidth() {
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    /**
+     * trả về chiều rộng
+     * @return
+     */
+    public int getWidth() {
         return width;
     }
 
     /**
-     * phương thức tạo giá trị cho chiều rộng
-     * @param width giá trị cần tạo
+     * trả về chiều dai
+     * @return
      */
-    public void setWidth(double width) {
-        this.width = width;
+    public int getLength() {
+        return length;
     }
 
     /**
-     * phương thức lấy giá trị cho chiều dài
-     * @return  chiều dài
+     * hàm update
      */
-    public double getHeight() {
-        return height;
+    @Override
+    public void Update() {
+        if(start.getX() > Diagram.getMainFrame().getWidth() - width - 15){
+            SpeedXY.setX(-SpeedXY.getX());
+        }
+        if(start.getX() <= 0){
+            SpeedXY.setX(-SpeedXY.getX());
+        }
+        if(start.getY() <= 0 ){
+            SpeedXY.setY(-SpeedXY.getY());
+        }
+        if(start.getY() > Diagram.getMainFrame().getHeight() - length -35){
+            SpeedXY.setY(-SpeedXY.getY());
+        }
+        start.setX(start.getX()+SpeedXY.getX());
+        start.setY(start.getY()+SpeedXY.getY());
     }
 
-    /**
-     * phương thức tạo giá trị cho chiều dài
-     * @param height    giá trị cần tạo
-     */
-    public void setHeight(double height) {
-        this.height = height;
-    }
+
 }

@@ -1,37 +1,19 @@
 package week5_6;
 
-//import java.util.ArrayList;
 
-/**
- * Created by CCNE on 17/10/2018.
- */
-abstract class Shape {
-    protected String color;
-    protected boolean filled;
-    protected boolean isMoving;
-    abstract double getArea();
-    abstract double getPerimeter();
-    public String getColor() {
+import java.awt.*;
+import java.util.Random;
+
+abstract class Shape  {
+    protected Color color = new Color((new Random()).nextInt(255),(new Random()).nextInt(255),(new Random()).nextInt(255));
+
+    public void setColor(Color c) {
+        color = c;
+    }
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
+    public abstract void Update();
 
-    public boolean isFilled() {
-        return filled;
-    }
-
-    public void setFilled(boolean filled) {
-        this.filled = filled;
-    }
-
-    public boolean isMoving() {
-        return isMoving;
-    }
-
-    public void setMoving(boolean moving) {
-        isMoving = moving;
-    }
 }

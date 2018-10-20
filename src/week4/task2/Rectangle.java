@@ -1,15 +1,15 @@
 package week4.task2;
 
 public class Rectangle extends Shape {
-    private double width;
-    private double length;
+    private int width;
+    private int length;
 
     /**
      * hàm tạo mặc định. các thuộc tính mặc định giá trị 1.0
      */
     public Rectangle(){
-        this.width = 1.0;
-        this.length = 1.0;
+        this.width = 1;
+        this.length = 1;
     }
 
     /**
@@ -17,7 +17,7 @@ public class Rectangle extends Shape {
      * @param width chiều dài
      * @param length  chiều rộng
      */
-    public Rectangle(double width, double length){
+    public Rectangle(int width, int length){
         this.length = length;
         this.width = width;
     }
@@ -29,25 +29,25 @@ public class Rectangle extends Shape {
      * @param color màu sắc
      * @param filled thuộc tính filled
      */
-    public Rectangle(double width, double length, String color, boolean filled){
+    public Rectangle(int width, int length, String color, boolean filled){
         super(color,filled);
         this.width = width;
         this.length = length;
     }
 
-    public double getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public void setWidth(double width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 
-    public double getLength() {
+    public int getLength() {
         return length;
     }
 
-    public void setLength(double length) {
+    public void setLength(int length) {
         this.length = length;
     }
 
@@ -55,7 +55,7 @@ public class Rectangle extends Shape {
      * phương thức tính diện tích hình chữ nhật
      * @return  diện tích hình chữ nhật
      */
-    public double getArea(){
+    public int getArea(){
         return this.width * this.length;
     }
 
@@ -63,7 +63,7 @@ public class Rectangle extends Shape {
      * phương thức tính chu vi hình chữ nhật
      * @return  chu vi hình chữ nhật
      */
-    public double getPerimeter(){
+    public int getPerimeter(){
         return (this.length + this.width)*2;
     }
 

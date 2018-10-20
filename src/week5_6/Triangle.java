@@ -1,51 +1,31 @@
 package week5_6;
 import java.lang.Math;
-public class Triangle extends Shape {
-    private Point a,b,c;
+public class Triangle extends Shape  {
+    private int DoDaiCanh;
 
     /**
-     * phương thức tạo mặc định
+     * hàm khơi tạo
+     * @param a đô dai cạnh
      */
-    public Triangle(){
-        a = new Point(1, 1);
-        b = new Point(2,3);
-        c = new Point(4,5);
+    public Triangle(int a){
+        DoDaiCanh = a;
     }
 
     /**
-     * phương thức tạo có 3 tham sô
-     * @param a điểm a
-     * @param b điểm b
-     * @param c điểm c
+     * hàm trả về dộ dài
+     * @return
      */
-    public Triangle(Point a, Point b, Point c){
-        this.a = a;
-        this.b = b;
-        this.c = c;
+    public int getDoDaiCanh() {
+        return DoDaiCanh;
     }
 
-    /**
-     * phương thức tính chu vi tam giác
-     * @return  chu vi tam giác
-     */
+    public void setDoDaiCanh(int doDaiCanh) {
+        DoDaiCanh = doDaiCanh;
+    }
+
     @Override
-    public double getPerimeter(){
-        double dic1 = this.a.Distance(this.b);
-        double dic2 = this.a.Distance(this.c);
-        double dic3 = this.b.Distance(this.c);
-        return dic1+ dic2 + dic3;
+    public void Update() {
+
     }
 
-    /**
-     * phương thức tính diện tích tam giác
-     * @return  diện tích tam giác
-     */
-    @Override
-    public double getArea(){
-        double dic1 = this.a.Distance(this.b);
-        double dic2 = this.a.Distance(this.c);
-        double dic3 = this.b.Distance(this.c);
-        double tmp = (dic1+dic2+dic3)/2;
-        return Math.sqrt(tmp*(tmp-dic1)*(tmp-dic2)*(tmp-dic3));
-    }
 }

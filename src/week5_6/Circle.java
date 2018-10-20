@@ -1,56 +1,66 @@
 package week5_6;
 
-public class Circle extends Shape  {
-    static final double PI = 3.14;
-    private double radius;
+import java.util.Random;
+
+public class Circle extends Shape {
+    private int radius;
+    private Point Tam = new Point();
+    private Point SpeedXY = new Point();
+
     /**
-     * Hàm tạo không có tham số. Mặc định giá trị của radius = 1.0.
+     * ham khởi tạo
      */
-    public Circle(){
-        radius = 1.0;
+    public Circle() {
+        Random rd = new Random();
+        radius = rd.nextInt(150);
+        Tam.setY(rd.nextInt(150));
+        Tam.setX(rd.nextInt(150));
+        SpeedXY.setY(rd.nextInt(15));
+        SpeedXY.setX(rd.nextInt(15));
     }
 
     /**
-     * Hàm tạo có 1 tham số truyền vào
-     * @param radius bán kính ta muốn tạo
+     * hàm tra vể bán kinh hinht tròn
+     *
+     * @return bán kinh hinh tròn
      */
-    public Circle(double radius){
-        this.radius = radius;
-    }
-
-
-    /**
-     * phương thức lấy giá trị bán kinh
-     * @return  bán kính của đối tượng ta muốn lấy
-     */
-    public double getRadius() {
+    public int getRadius() {
         return radius;
     }
 
     /**
-     * phương thức thay đổi giá trị bán kính
-     * @param radius bán kính ta muốn thay đổi
+     * đặt giá trị bán kính
+     *
+     * @param radius bán kính hinh tron
      */
-    public void setRadius(double radius) {
+    public void setRadius(int radius) {
         this.radius = radius;
     }
-
-    /**
-     * phương thức tính diện tích hình tròn
-     * @return  diện tích hình tròn
-     */
     @Override
-    public double getArea(){
-        return PI*Math.pow(radius,2);
+    public void Update() {
+        if(Tam.getX() > Diagram.getMainFrame().getWidth() - radius - 15){
+            SpeedXY.setX(-SpeedXY.getX());
+        }
+        if(Tam.getX() <= 0){
+            SpeedXY.setX(-SpeedXY.getX());
+        }
+        if(Tam.getY() <= 0 ){
+            SpeedXY.setY(-SpeedXY.getY());
+        }
+        if(Tam.getY() > Diagram.getMainFrame().getHeight() - radius - 35){
+            SpeedXY.setY(-SpeedXY.getY());
+        }
+        Tam.setX(Tam.getX()+SpeedXY.getX());
+        Tam.setY(Tam.getY()+SpeedXY.getY());
+
     }
 
-    /**
-     * phương thức tính chu vi hình tròn
-     * @return  chu vi hình tròn
-     */
-    @Override
-    public double getPerimeter(){
-        return PI*radius*2;
+    public void setTam(Point tam) {
+        Tam = tam;
     }
 
+    public Point getTam() {
+        return Tam;
+    }
 }
+

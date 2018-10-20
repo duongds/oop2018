@@ -5,22 +5,22 @@ public class Square extends Rectangle {
         super();
     }
     //TODO: Khai báo phương thức getter , setter
-    public double getSide(){
+    public int getSide(){
         return super.getWidth();
     }
 
-    public void setSide(double side){
+    public void setSide(int side){
         super.setWidth(side);
         super.setLength(side);
     }
 
     @Override
-    public void setWidth(double side) {
+    public void setWidth(int side) {
         super.setWidth(side);
     }
 
     @Override
-    public void setLength(double side) {
+    public void setLength(int side) {
         super.setLength(side);
     }
 
@@ -28,7 +28,7 @@ public class Square extends Rectangle {
      * hàm tạo có 1 tham số
      * @param side  độ dài 1 cạnh của hình vuông
      */
-    public Square(double side){
+    public Square(int side){
         super(side,side);
     }
     /**
@@ -37,7 +37,7 @@ public class Square extends Rectangle {
      * @param color màu sắc
      * @param filled    thuộc tính filled
      */
-    public Square(double side,String color,boolean filled){
+    public Square(int side,String color,boolean filled){
         super(side,side,color,filled);
     }
 
