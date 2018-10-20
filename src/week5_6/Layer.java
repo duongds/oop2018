@@ -1,93 +1,122 @@
 package week5_6;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import javax.swing.JPanel;
+import java.util.Random;
+import javax.swing.*;
 
-public class Layer extends JPanel {
-    private ArrayList<Shape> listShape = new ArrayList<Shape>();
-
-    public Layer() {
-        listShape.add(0, new Circle());
-        listShape.add(1, new Circle());
-        listShape.add(2, new Circle());
-        listShape.add(3, new Rectangle());
-        listShape.add(4, new Rectangle());
-        listShape.add(5, new Square());
-        Diagram.getMainFrame().add(this);
-    }
-    public void Show () {
-        int Load = 0;
-        System.out.println("Số hình trong list: " + listShape.size());
-        while (true) {
-            try {
-                Thread.sleep(50);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            for (int i = 0; i < listShape.size(); i++) {
-                listShape.get(i).Update();
-            }
-            this.repaint();
-            Load++;
-            if (Load == 100) {
-                //this.D
-                System.out.println("Số hình trong list sau khi xóa hình tròn: " + listShape.size());
-            }
-        }
-    }
+public class Layer extends JPanel implements ActionListener {
+    public Timer t = new Timer(10, this);
+    public final int shapeCount = 20;
+    public ArrayList<Shape> layer = new ArrayList<>();
     /**
-     * xóa các hinh tam giac
+     * khỏi tạo layer
      */
-    public void DeleteTritangle () {
-        for (int i = 0; i < listShape.size(); i++) {
-            if (listShape.get(i) instanceof Triangle) {
-                listShape.remove(i);
-                i--;
+    public Layer(){
+        int i = 0;
+        Random ran = new Random();
+        while(i<= shapeCount){
+            int j = ran.nextInt(3);
+            if(j == 3){
+                layer.add(new Rectangle());
             }
+            else if(j== 2){
+                layer.add(new Square());
+            }
+            else if(j== 1){
+                layer.add(new Circle());
+            }
+            else if(j==0){
+                layer.add(new Triangle());
+            }
+            i++;
         }
+
+
     }
 
     /**
-     * xóa các hinh tron
-     */
-    public void DeleteCircle () {
-        for (int i = 0; i < listShape.size(); i++) {
-            if (listShape.get(i) instanceof Circle) {
-                listShape.remove(i);
-                i--;
-            }
-        }
-    }
-    /**
-     * hàm vẽ các đối tượng
+     * vẽ hình
      * @param g
      */
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        for (Shape sh : layer) {
+            if (sh instanceof Circle) {
 
-    public void panit (Graphics g){
-        super.paint(g);
-        setBackground(new Color(0xE2CE99));
-        for (int i = 0; i < listShape.size(); i++) {
-            if (listShape.get(i) instanceof Circle) {
-                g.setColor(listShape.get(i).getColor());
-                int i1 = ((Circle) listShape.get(i)).getRadius();
-                g.fillOval(((Circle) listShape.get(i)).getTam().getX(), ((Circle) listShape.get(i)).getTam().getY(), i1, i1);
-            } else {
-                if (listShape.get(i) instanceof Rectangle) {
-                    if (listShape.get(i) instanceof Square) {
-                        g.setColor(listShape.get(i).getColor());
-                        int s = ((Square) listShape.get(i)).getSide();
-                        g.fillRect(((Square) listShape.get(i)).getStart().getX(), ((Square) listShape.get(i)).getStart().getY(), s, s);
-                    } else {
-                        g.setColor(listShape.get(i).getColor());
-                        int w = ((Rectangle) listShape.get(i)).getWidth();
+                Circle c = (Circle) sh;
+                g.setColor(c.getColor());
+                g.fillOval(c.startPoint.getX(), c.startPoint.getY(), c.getRadius(), c.getRadius());
 
-                        int h = ((Rectangle) listShape.get(i)).getLength();
-                        g.fillRect(((Rectangle) listShape.get(i)).getStart().getX(), ((Rectangle) listShape.get(i)).getStart().getY(), w, h);
-                    }
+
+            } else if (sh instanceof Rectangle) {
+
+                if (sh instanceof Square) {
+                    Square s = (Square) sh;
+                    g.setColor(s.getColor());
+                    g.fillRect(s.startPoint.getX(), s.startPoint.getY(), s.getside(), s.getside());
+                } else {
+                    Rectangle r = (Rectangle) sh;
+                    g.setColor(r.getColor());
+                    g.fillRect(r.startPoint.getX(), r.startPoint.getY(), r.getLength(), r.getWidth());
+
                 }
             }
+            else if(sh instanceof Triangle){
+                Triangle t = (Triangle) sh;
+                g.setColor(t.getColor());
+                g.fillPolygon(new int[]{t.getP1().getX(),t.getP2().getX(),t.getP3().getX()},
+                        new int[]{t.getP1().getY(),t.getP2().getY(),t.getP3().getY()},3);
+
+            }
         }
+
+
+
+
+
+
+
+
+        t.start();
+
+
+    }
+
+    /**
+     * hiện hình di chuyển
+     */
+
+    public void actionPerformed(ActionEvent e){
+        for(Shape sh : layer){
+            sh.move();
+        }
+        repaint();
+
+    }
+    public void removeTriangle(){
+        int i ;
+        for(i=0;i<layer.size();i++){
+
+            if(layer.get(i) instanceof Triangle){
+                layer.remove(i);
+                i--;
+            }
+        }
+
+    }
+    public void removeCircle(){
+        int i ;
+        for(i=0;i<layer.size();i++){
+
+            if(layer.get(i) instanceof Circle){
+                layer.remove(i);
+                i--;
+            }
+        }
+
     }
 
 }

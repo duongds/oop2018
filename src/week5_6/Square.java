@@ -1,5 +1,6 @@
 package week5_6;
 
+import java.awt.*;
 import java.util.Random;
 
 /**
@@ -7,57 +8,43 @@ import java.util.Random;
  */
 public class Square extends Rectangle {
     private int side;
-    private Point start = new Point();
-    private Point SpeedXY = new Point();
+
 
     /**
-     * hàm khởi tạo
+     * khỏi tạo hình vuông
      */
-    public Square(){
-        Random rd = new Random();
-        side = rd.nextInt(150);
-        start.setX(rd.nextInt(150));
-        start.setY(rd.nextInt(150));
-        SpeedXY.setY(rd.nextInt(15));
-        SpeedXY.setX(rd.nextInt(15));
-    }
+    public  Square(){
+        Random ran  = new Random();
+        this.side   = ran.nextInt(70);
+        this.startPoint.setX(ran.nextInt(30));
+        this.startPoint.setY(ran.nextInt(30));
+        this.speed.setX( ran.nextInt(7));
+        this.speed.setY( ran.nextInt(7));
+        this.color   = new Color(ran.nextInt(255),ran.nextInt(255),ran.nextInt(255));
 
-    @Override
-    public void setStart(Point start) {
-        this.start = start;
-    }
-    public Point getStart(){
-        return this.start;
-    }
-    /**
-     * tra về side
-     * @return side đô dài cạnh
-     */
-    public int getSide() {
-        return this.side;
     }
 
     /**
-     * cai đật cạnh
-     * @param side
+     *
+     * @return độ dài cạnh
      */
-    public void setSide(int side) {
+    public int getside() {
+        return side;
+    }
+
+    /**
+     *
+     * @param side đọ dài muốn đưa vào
+     */
+    public void setside(int side) {
         this.side = side;
     }
-    public void Update(){
-        if(start.getX() > Diagram.getMainFrame().getWidth() - side - 15){
-            SpeedXY.setX(-SpeedXY.getX());
-        }
-        if(start.getX() <= 0){
-            SpeedXY.setX(-SpeedXY.getX());
-        }
-        if(start.getY() <= 0 ){
-            SpeedXY.setY(-SpeedXY.getY());
-        }
-        if(start.getY() > Diagram.getMainFrame().getHeight() - side - 35){
-            SpeedXY.setY(-SpeedXY.getY());
-        }
-        start.setX(start.getX()+SpeedXY.getX());
-        start.setY(start.getY()+SpeedXY.getY());
+
+    /**
+     * di chuyển
+     */
+    @Override
+    public void move() {
+        super.move();
     }
 }

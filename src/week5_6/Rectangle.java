@@ -1,87 +1,69 @@
 package week5_6;
 
+import java.awt.*;
 import java.util.Random;
 
 /**
  * class hình chữ nhật
  */
 public class Rectangle extends Shape {
-    private int width,length;
-    private Point start = new Point();
-    private Point SpeedXY = new Point();
+    private int width, length;
+
+
+
     /**
-     * hàm khởi tạo
+     * khởi tạo hình chữ nhật
      */
     public Rectangle(){
-        Random rd = new Random();
-        width = rd.nextInt(150);
-        length = rd.nextInt(150);
-        start.setX(rd.nextInt(150));
-        start.setY(rd.nextInt(150));
-        SpeedXY.setY(rd.nextInt(15));
-        SpeedXY.setX(rd.nextInt(15));
-    }
+        Random ran= new Random();
+        this.length = ran.nextInt(100);
+        this.width  = ran.nextInt(80);
+        this.startPoint.setX(ran.nextInt(30));
+        this.startPoint.setY(ran.nextInt(30));
+        this.speed.setX( ran.nextInt(7)+1);
+        this.speed.setY( ran.nextInt(7)+1);
+        this.color   = new Color(ran.nextInt(255),ran.nextInt(255),ran.nextInt(255));
 
-    public void setStart(Point start) {
-        this.start = start;
-    }
 
-    public Point getStart() {
-        return start;
     }
 
     /**
-     * đặt giá trị chiều rộng
-     * @param width
-     */
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    /**
-     * đật giá trị chiều dai
-     * @param length
-     */
-    public void setLength(int length) {
-        this.length = length;
-    }
-
-    /**
-     * trả về chiều rộng
-     * @return
-     */
-    public int getWidth() {
-        return width;
-    }
-
-    /**
-     * trả về chiều dai
-     * @return
+     *
+     * @return chiều dài
      */
     public int getLength() {
         return length;
     }
 
     /**
-     * hàm update
+     *
+     * @return chiều rộng
      */
-    @Override
-    public void Update() {
-        if(start.getX() > Diagram.getMainFrame().getWidth() - width - 15){
-            SpeedXY.setX(-SpeedXY.getX());
-        }
-        if(start.getX() <= 0){
-            SpeedXY.setX(-SpeedXY.getX());
-        }
-        if(start.getY() <= 0 ){
-            SpeedXY.setY(-SpeedXY.getY());
-        }
-        if(start.getY() > Diagram.getMainFrame().getHeight() - length -35){
-            SpeedXY.setY(-SpeedXY.getY());
-        }
-        start.setX(start.getX()+SpeedXY.getX());
-        start.setY(start.getY()+SpeedXY.getY());
+    public int getWidth() {
+        return width;
     }
 
+    /**
+     *
+     * @param width chiều rộng muốn đưa vào
+     */
+    public void setWidth(int width) {
+        this.width = width;
+    }
 
+    /**
+     *
+     * @param length chiều dài muốn đưa vào
+     */
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    /**
+     * di chuyển
+     */
+    @Override
+    public void move() {
+        super.move();
+    }
 }

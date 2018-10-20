@@ -1,66 +1,49 @@
 package week5_6;
 
+import java.awt.*;
 import java.util.Random;
 
 public class Circle extends Shape {
     private int radius;
-    private Point Tam = new Point();
-    private Point SpeedXY = new Point();
+
 
     /**
-     * ham khởi tạo
+     * hàm khởi tạo hình tròn
      */
-    public Circle() {
-        Random rd = new Random();
-        radius = rd.nextInt(150);
-        Tam.setY(rd.nextInt(150));
-        Tam.setX(rd.nextInt(150));
-        SpeedXY.setY(rd.nextInt(15));
-        SpeedXY.setX(rd.nextInt(15));
+    public Circle(){
+        Random ran = new Random();
+        this.radius = ran.nextInt(100);
+        this.startPoint.setX(ran.nextInt(30));
+        this.startPoint.setY(ran.nextInt(30));
+        this.speed.setX( ran.nextInt(7));
+        this.speed.setY( ran.nextInt(7));
+        this.color   = new Color(ran.nextInt(255),ran.nextInt(255),ran.nextInt(255));
+
+
     }
 
     /**
-     * hàm tra vể bán kinh hinht tròn
      *
-     * @return bán kinh hinh tròn
+     * @return độ dài bán kính
      */
     public int getRadius() {
         return radius;
     }
 
     /**
-     * đặt giá trị bán kính
      *
-     * @param radius bán kính hinh tron
+     * @param radius : độ dài bán kính muốn thiết lập
      */
+
     public void setRadius(int radius) {
         this.radius = radius;
     }
+
+    /**
+     * hàm di chuyển
+     */
     @Override
-    public void Update() {
-        if(Tam.getX() > Diagram.getMainFrame().getWidth() - radius - 15){
-            SpeedXY.setX(-SpeedXY.getX());
-        }
-        if(Tam.getX() <= 0){
-            SpeedXY.setX(-SpeedXY.getX());
-        }
-        if(Tam.getY() <= 0 ){
-            SpeedXY.setY(-SpeedXY.getY());
-        }
-        if(Tam.getY() > Diagram.getMainFrame().getHeight() - radius - 35){
-            SpeedXY.setY(-SpeedXY.getY());
-        }
-        Tam.setX(Tam.getX()+SpeedXY.getX());
-        Tam.setY(Tam.getY()+SpeedXY.getY());
-
-    }
-
-    public void setTam(Point tam) {
-        Tam = tam;
-    }
-
-    public Point getTam() {
-        return Tam;
+    public void move() {
+        super.move();
     }
 }
-
