@@ -58,7 +58,7 @@ public class Utils {
         File dir=  new File(folderPath);
         if(dir.exists()){
             if(dir.isFile()){
-                if(dir.getName().endsWith(fileName)){
+                if(dir.getName().equals(fileName)){
                     System.out.println(dir.getAbsolutePath());
                 }
             }
@@ -69,9 +69,6 @@ public class Utils {
                 }
             }
         }
-        else{
-            System.out.println("Folder is Empty!");
-        }
     }
     public static void main(String[] arg) throws IOException {
         String path="C:\\D.TXT";
@@ -79,7 +76,9 @@ public class Utils {
         //writeContentFromFile(path);
         writeContentFromFile(path);
         readContentFromFile(path);
-        findFilebyName("C:\\", "D.TXT");
+        WriteFile(path);
+        readContentFromFile(path);
+        findFilebyName("E:\\Test\\", "D.TXT");
 
     }
 }
