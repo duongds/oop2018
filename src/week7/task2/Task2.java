@@ -58,6 +58,7 @@ public class Task2 {
             int ds1 = sc.nextInt();
             System.out.println(ds1);
         }
+
     }
     public static void main(String[] abc)  {
         Task2 Test  = new Task2();
