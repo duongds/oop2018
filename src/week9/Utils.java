@@ -42,9 +42,8 @@ public class Utils {
      * @throws IOException
      */
     public static void WriteFile(String path) throws IOException {
-        String text = " duongds2";
+        String text = " Duongds2";
         FileWriter file = new FileWriter(path,true);
-        //BufferedWriter write = new BufferedWriter(file);
         file.write(text);
         file.close();
     }
@@ -55,12 +54,13 @@ public class Utils {
      * @param fileName: tên file cần tìm
      */
     public static void findFilebyName(String folderPath,String fileName){
-        File dir=  new File(folderPath);
+        File dir=  new File(folderPath+ fileName);
         if(dir.exists()){
             if(dir.isFile()){
                 if(dir.getName().equals(fileName)){
                     System.out.println(dir.getAbsolutePath());
                 }
+                else System.out.println("Khong tim thay!");
             }
             File[] listFile = dir.listFiles();
             if(listFile!=null){
@@ -71,14 +71,13 @@ public class Utils {
         }
     }
     public static void main(String[] arg) throws IOException {
-        String path="C:\\D.TXT";
+        String path="E:\\Test\\D.TXT";
         readContentFromFile(path);
-        //writeContentFromFile(path);
         writeContentFromFile(path);
         readContentFromFile(path);
         WriteFile(path);
         readContentFromFile(path);
-        findFilebyName("E:\\Test\\", "D.TXT");
+        findFilebyName("E:\\", "D.TXT");
 
     }
 }

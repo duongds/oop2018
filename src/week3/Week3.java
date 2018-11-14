@@ -71,5 +71,6 @@ public class Week3 {
     {
 
         System.out.print(calculateBMI(70,1.7));
+
     }
 }
