@@ -1,11 +1,6 @@
 package week11;
 
 public class Task2 {
-    public <T> void swap(T[]arr, int i, int j){
-        T temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
     public<T extends Comparable<T>> void MaxArr(T[]arr){
         int n=arr.length;
         T max = arr[0];
